@@ -1,0 +1,34 @@
+{
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Scene": {
+    "time": 1675984220829.97,
+    "uuid": "0dd343ba-2c6b-4fa9-ae22-74a12bd8de2b",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Script": {
+    "time": 1675984220830.4763,
+    "uuid": "37313a31-1739-4872-b6f1-719b89e79c51",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Script/Zip.ts": {
+    "time": 1676066590789.6,
+    "uuid": "6f0ae2a2-5fd9-4d0a-8df3-d35cf5e46a56",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Scene.meta": {
+    "time": 1675984220829.6243
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Script.meta": {
+    "time": 1675984220830.1707
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Script/Zip.ts.meta": {
+    "time": 1675984220830.5444
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Scene/ZipExtractor.scene": {
+    "time": 1676053611730.2341,
+    "uuid": "4b0ad239-8124-48e1-82eb-6c8ff840f99c",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/ZipExtractor/assets/Scene/ZipExtractor.scene.meta": {
+    "time": 1675984299884.6665
+  }
+}

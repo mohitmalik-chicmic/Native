@@ -1,0 +1,21 @@
+{
+  "name": "zipextractor",
+  "uuid": "2a83c8c0-07f1-4ea2-8f6a-ca33bef61b3a",
+  "version": "3.6.2",
+  "creator": {
+    "version": "3.7.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/jszip": "^3.4.1",
+    "http": "^0.0.1-security",
+    "node": "^19.3.0"
+  }
+}
