@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, ImageAsset, SpriteFrame, Texture2D, Sprite, find, native } from "cc";
+import { _decorator, Component, Node, ImageAsset, SpriteFrame, Texture2D, Sprite, find, native, assetManager } from "cc";
 const { ccclass, property } = _decorator;
 // import http from "http";
 //import JSZip from "jszip";
@@ -26,8 +26,10 @@ declare global {
 @ccclass("Zip")
 export class Zip extends Component {
     @property(Sprite) RandomSprite: Sprite = null;
+    result =0;
+    imageArray : SpriteFrame[] = [];
     start() {
-        this.createDemoImage();
+        //this.createDemoImage();
         this.downlaodZip();
       //  var zip = new JSZip();
        // console.log(zip);
@@ -41,9 +43,74 @@ export class Zip extends Component {
         // this.loadFromRemote();
         // this.loadZip();
     }
+    // downlaodZip = () => {
+    //     console.log("clikced");
+    //     let result = native.reflection.callStaticMethod("com/cocos/game/AppActivity", "ZipDownlaod", "(Ljava/lang/String;)Ljava/lang/String;", "start");
+    //     if(result){
+    //         console.log("PRINTING", result);
+    //         let absolutePath = `${result}/1.jpg`
+    //         assetManager.loadRemote<ImageAsset>(absolutePath, (err, imageAsset) => {
+    //             console.log("PATH", absolutePath);
+    //             if (err) {
+    //                 console.log("ERROR");
+    //                 console.log(JSON.stringify(err));
+    //                 return;
+    //             }
+    //             console.log("NO ERROR");
+    //             const spriteFrame = new SpriteFrame();
+    //             const texture = new Texture2D();
+    //             texture.image = imageAsset;
+    //             spriteFrame.texture = texture;
+    //             console.log("SPRITE", JSON.stringify(spriteFrame));
+    //             this.RandomSprite.spriteFrame = spriteFrame;    
+    //             //this.node.getComponent(Sprite).spriteFrame = spriteFrame;
+    //         });
+    //         }
+    //         this.showImages()
+    // }
     downlaodZip = () => {
         console.log("clikced");
-        native.reflection.callStaticMethod("com/cocos/game/AppActivity", "ZipDownlaod", "(Ljava/lang/String;)V", "start");
+        this.result = native.reflection.callStaticMethod("com/cocos/game/AppActivity", "ZipDownload", "(I)I",1);
+        console.log("COCOS resuklt",this.result);
+        if(this.result>0){
+            for(let i=0;i<this.result;i++){
+                this.showImages(i);
+            }
+            if(this.result==4)
+            console.log("IMAGE ARRAY", this.imageArray.length)
+        }
+        
+        
+    }
+        
+    showImages= (index) =>{
+
+        let result = native.reflection.callStaticMethod("com/cocos/game/AppActivity", "getImages", "(I)Ljava/lang/String;", index);
+        console.log("RESULT",result);
+        if(result){
+                  //  console.log("PRINTING", result);
+                    let absolutePath = `${result}`
+                    assetManager.loadRemote<ImageAsset>(absolutePath, (err, imageAsset) => {
+                        console.log("PATH", absolutePath);
+                        if (err) {
+                            console.log("ERROR");
+                            console.log(JSON.stringify(err));
+                            return;
+                        }
+                        console.log("NO ERROR");
+                        const spriteFrame = new SpriteFrame();
+                        const texture = new Texture2D();
+                        texture.image = imageAsset;
+                        spriteFrame.texture = texture;
+                        console.log("SPRITE", JSON.stringify(spriteFrame));
+                        this.imageArray.push(spriteFrame);
+                        console.log("IMAGE ARRAY", this.imageArray.length)
+                        this.RandomSprite.spriteFrame = spriteFrame;    
+                        //this.node.getComponent(Sprite).spriteFrame = spriteFrame;
+                    });
+                }
+        
+    }
     }
 
     // loadUsingRequest(remoteZipLink: string) {
@@ -83,49 +150,45 @@ export class Zip extends Component {
     //         });
     // }
 
-    createDemoImage() {
-        let tempArr: number[] = [];
-        for (let i: number = 0; i < 16384; i++) {
-            tempArr.push(255);
-            tempArr.push(255);
-            tempArr.push(255);
-            tempArr.push(255);
-        }
-        for (let i: number = 0; i < 16384; i++) {
-            tempArr.push(255);
-            tempArr.push(0);
-            tempArr.push(0);
-            tempArr.push(255);
-        }
-        for (let i: number = 0; i < 16384; i++) {
-            tempArr.push(0);
-            tempArr.push(255);
-            tempArr.push(0);
-            tempArr.push(255);
-        }
-        for (let i: number = 0; i < 16384; i++) {
-            tempArr.push(0);
-            tempArr.push(0);
-            tempArr.push(255);
-            tempArr.push(255);
-        }
+    // createDemoImage() {
+    //     let tempArr: number[] = [];
+    //     for (let i: number = 0; i < 16384; i++) {
+    //         tempArr.push(255);
+    //         tempArr.push(255);
+    //         tempArr.push(255);
+    //         tempArr.push(255);
+    //     }
+    //     for (let i: number = 0; i < 16384; i++) {
+    //         tempArr.push(255);
+    //         tempArr.push(0);
+    //         tempArr.push(0);
+    //         tempArr.push(255);
+    //     }
+    //     for (let i: number = 0; i < 16384; i++) {
+    //         tempArr.push(0);
+    //         tempArr.push(255);
+    //         tempArr.push(0);
+    //         tempArr.push(255);
+    //     }
+    //     for (let i: number = 0; i < 16384; i++) {
+    //         tempArr.push(0);
+    //         tempArr.push(0);
+    //         tempArr.push(255);
+    //         tempArr.push(255);
+    //     }
 
-        let pixelsArr: ArrayBufferView = new Uint8Array(tempArr);
-        let imageAsset: ImageAsset = new ImageAsset();
-        imageAsset.reset({
-            _data: pixelsArr,
-            width: 256,
-            height: 256,
-            format: Texture2D.PixelFormat.RGBA8888,
-            _compressed: false,
-        });
-        let tex: Texture2D = new Texture2D();
-        tex.image = imageAsset;
-        let spriteFrame = new SpriteFrame();
-        spriteFrame.texture = tex;
-        spriteFrame.packable = false;
-        this.RandomSprite.spriteFrame = spriteFrame;
-    }
-
-    update(deltaTime: number) {}
-}
+    //     let pixelsArr: ArrayBufferView = new Uint8Array(tempArr);
+    //     let imageAsset: ImageAsset = new ImageAsset();
+    //     imageAsset.reset({
+    //         _data: pixelsArr,
+    //         width: 256,
+    //         height: 256,
+    //         format: Texture2D.PixelFormat.RGBA8888,
+    //         _compressed: false,
+    //     });
+    //     let tex: Texture2D = new Texture2D();
+    //     tex.image = imageAsset;
+    //     let spriteFrame = new SpriteFrame();
+    //     spriteFrame.texture = tex;
+    //     spriteFrame.packable = false;
+    //     this.RandomSprite.spriteFrame = spriteFrame;
