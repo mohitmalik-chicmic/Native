@@ -6,7 +6,8 @@
       "outputName": "android",
       "mainBundleCompressionType": "merge_dep",
       "platform": "android",
-      "skipCompressTexture": true
+      "skipCompressTexture": true,
+      "name": "uploadImage"
     },
     "options": {
       "android": {
@@ -102,6 +103,96 @@
         "__version__": "1.0.1"
       },
       "1676055316136": {
+        "packageName": "com.test.cocos",
+        "orientation": {
+          "portrait": false,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 33,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1676341132759": {
+        "packageName": "com.test.cocos",
+        "orientation": {
+          "portrait": false,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 33,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1676341751118": {
+        "packageName": "com.test.cocos",
+        "orientation": {
+          "portrait": false,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 33,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1676341805344": {
         "packageName": "com.test.cocos",
         "orientation": {
           "portrait": false,

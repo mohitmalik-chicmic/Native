@@ -62,5 +62,69 @@
   },
   "/Users/chicmic/Documents/InhouseCOCOS/Native/assets/Scene/ZipExtractor.scene.meta": {
     "time": 1675984299884.6665
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Scene": {
+    "time": 1676341090540.2764,
+    "uuid": "0dd343ba-2c6b-4fa9-ae22-74a12bd8de2b",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Script": {
+    "time": 1676341018413.9758,
+    "uuid": "37313a31-1739-4872-b6f1-719b89e79c51",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Scene.meta": {
+    "time": 1676340471940.7666
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Script.meta": {
+    "time": 1676340471941.0144
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Script/UploadImage.ts.meta": {
+    "time": 1676340471941.205
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Script/UploadImage.ts": {
+    "time": 1676341047279.1624,
+    "uuid": "6f0ae2a2-5fd9-4d0a-8df3-d35cf5e46a56",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Scene/ProfileUpload.scene.meta": {
+    "time": 1676340471940.955
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/Native-1/assets/Scene/ProfileUpload.scene": {
+    "time": 1676341109515.7605,
+    "uuid": "4b0ad239-8124-48e1-82eb-6c8ff840f99c",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Scene": {
+    "time": 1676341090540.2764,
+    "uuid": "0dd343ba-2c6b-4fa9-ae22-74a12bd8de2b",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script": {
+    "time": 1676341018413.9758,
+    "uuid": "37313a31-1739-4872-b6f1-719b89e79c51",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts": {
+    "time": 1676888850150.9314,
+    "uuid": "6f0ae2a2-5fd9-4d0a-8df3-d35cf5e46a56",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Scene.meta": {
+    "time": 1676340471940.7666
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script.meta": {
+    "time": 1676340471941.0144
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts.meta": {
+    "time": 1676340471941.205
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Scene/ProfileUpload.scene": {
+    "time": 1676891517813.7725,
+    "uuid": "4b0ad239-8124-48e1-82eb-6c8ff840f99c",
+    "missing": false
+  },
+  "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Scene/ProfileUpload.scene.meta": {
+    "time": 1676340471940.955
   }
 }

@@ -1,11 +1,11 @@
-debug: Mon, 13 Feb 2023 22:31:35 GMT
-debug: Project: /Users/chicmic/Documents/InhouseCOCOS/Native
+debug: Mon, 20 Feb 2023 11:11:49 GMT
+debug: Project: /Users/chicmic/Documents/InhouseCOCOS/uploadProfile
 debug: Targets: editor,preview
 debug: Incremental file seems great.
 debug: Engine path: /Applications/CocosCreator/Creator/3.7.0/CocosCreator.app/Contents/Resources/resources/3d/engine
 debug: Initializing target [Editor]
 debug: Loading cache
-debug: Loading cache costs 2.0270830001682043ms.
+debug: Loading cache costs 0.8174580000340939ms.
 debug: Engine features shipped in editor: base,gfx-webgl,gfx-webgl2,gfx-empty,3d,animation,skeletal-animation,2d,ui,particle,particle-2d,physics-framework,physics-2d-framework,intersection-2d,primitive,profiler,occlusion-query,geometry-renderer,debug-renderer,audio,video,xr,light-probe,terrain,webview,tween,tiled-map,spine,dragon-bones,marionette,custom-pipeline,websocket,websocket-server
 debug: Our import map(foo:/bar): {
   "imports": {
@@ -14,7 +14,7 @@ debug: Our import map(foo:/bar): {
 }
 debug: Initializing target [Preview]
 debug: Loading cache
-debug: Loading cache costs 1.7685000002384186ms.
+debug: Loading cache costs 0.6021250002086163ms.
 debug: Our import map(foo:/bar): {
   "imports": {
     "cc": "cce:/internal/x/cc"
@@ -28,30 +28,30 @@ debug: Reset databases. Enumerated domains: [
   },
   {
     "root": "db://assets/",
-    "physical": "/Users/chicmic/Documents/InhouseCOCOS/Native/assets"
+    "physical": "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets"
   }
 ]
 debug: Our import map(foo:/bar): {
   "imports": {
     "cc": "cce:/internal/x/cc",
     "db://internal/": "file:///Applications/CocosCreator/Creator/3.7.0/CocosCreator.app/Contents/Resources/resources/3d/engine/editor/assets/",
-    "db://assets/": "file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/"
+    "db://assets/": "file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/"
   }
 }
 debug: Our import map(foo:/bar): {
   "imports": {
     "cc": "cce:/internal/x/cc",
     "db://internal/": "file:///Applications/CocosCreator/Creator/3.7.0/CocosCreator.app/Contents/Resources/resources/3d/engine/editor/assets/",
-    "db://assets/": "file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/"
+    "db://assets/": "file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/"
   }
 }
 debug: Pulling asset-db.
-debug: Fetch asset-db cost: 3.832209000363946ms.
+debug: Fetch asset-db cost: 3.94404199719429ms.
 debug: Build iteration starts.
 Number of accumulated asset changes: 1
 Feature changed: false
 debug: Target(editor) build started.
-debug: Detected change: cce:/internal/x/cc. Last mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time), Current mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time)
+debug: Detected change: cce:/internal/x/cc. Last mtime: Thu Jan 01 1970 05:30:04 GMT+0530 (India Standard Time), Current mtime: Thu Jan 01 1970 05:30:03 GMT+0530 (India Standard Time)
 debug: Inspect cce:/internal/x/cc
 debug: Resolve cce:/internal/x/cc-fu/base from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/base.
 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl.
@@ -82,16 +82,15 @@ debug: Resolve cce:/internal/x/cc-fu/tiled-map from cce:/internal/x/cc as extern
 debug: Resolve cce:/internal/x/cc-fu/spine from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/spine.
 debug: Resolve cce:/internal/x/cc-fu/dragon-bones from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/dragon-bones.
 debug: Resolve cce:/internal/x/cc-fu/custom-pipeline from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/custom-pipeline.
-debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Wed Dec 31 1969 20:08:52 GMT-0800 (Pacific Standard Time), Current mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time)
+debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 06:02:57 GMT+0530 (India Standard Time), Current mtime: Thu Jan 01 1970 05:30:03 GMT+0530 (India Standard Time)
 debug: Inspect cce:/internal/x/prerequisite-imports
-debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts.
-debug: Inspect file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts
-debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts as cce:/internal/x/cc.
-debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts as cce:/internal/x/cc.
-debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts as cce:/internal/x/cc.
-debug: Target(editor) ends with cost 106.44566700048745ms.
+debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts.
+debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts as cce:/internal/x/cc.
+debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts as cce:/internal/x/cc.
+debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts as cce:/internal/x/cc.
+debug: Target(editor) ends with cost 37.518124997615814ms.
 debug: Target(preview) build started.
-debug: Detected change: cce:/internal/x/cc. Last mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time), Current mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time)
+debug: Detected change: cce:/internal/x/cc. Last mtime: Thu Jan 01 1970 05:30:04 GMT+0530 (India Standard Time), Current mtime: Thu Jan 01 1970 05:30:03 GMT+0530 (India Standard Time)
 debug: Inspect cce:/internal/x/cc
 debug: Resolve cce:/internal/x/cc-fu/2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/2d.
 debug: Resolve cce:/internal/x/cc-fu/sorting from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/sorting.
@@ -121,26 +120,25 @@ debug: Resolve cce:/internal/x/cc-fu/tween from cce:/internal/x/cc as external d
 debug: Resolve cce:/internal/x/cc-fu/ui from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/ui.
 debug: Resolve cce:/internal/x/cc-fu/video from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/video.
 debug: Resolve cce:/internal/x/cc-fu/webview from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/webview.
-debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Wed Dec 31 1969 20:08:52 GMT-0800 (Pacific Standard Time), Current mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time)
+debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 06:02:57 GMT+0530 (India Standard Time), Current mtime: Thu Jan 01 1970 05:30:03 GMT+0530 (India Standard Time)
 debug: Inspect cce:/internal/x/prerequisite-imports
-debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts.
-debug: Inspect file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts
-debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts as cce:/internal/x/cc.
-debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts as cce:/internal/x/cc.
-debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts as cce:/internal/x/cc.
-debug: Target(preview) ends with cost 87.0899169985205ms.
+debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts.
+debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts as cce:/internal/x/cc.
+debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts as cce:/internal/x/cc.
+debug: Resolve cc from file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts as cce:/internal/x/cc.
+debug: Target(preview) ends with cost 33.98358299955726ms.
 debug: Pulling asset-db.
-debug: Fetch asset-db cost: 27.328249998390675ms.
+debug: Fetch asset-db cost: 1157.0030420012772ms.
 debug: Build iteration starts.
 Number of accumulated asset changes: 1
 Feature changed: false
 debug: Target(editor) build started.
-debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time), Current mtime: Wed Dec 31 1969 16:00:05 GMT-0800 (Pacific Standard Time)
+debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 05:30:03 GMT+0530 (India Standard Time), Current mtime: Thu Jan 01 1970 05:30:06 GMT+0530 (India Standard Time)
 debug: Inspect cce:/internal/x/prerequisite-imports
-debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts.
-debug: Target(editor) ends with cost 9.349124999716878ms.
+debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts.
+debug: Target(editor) ends with cost 12.440458003431559ms.
 debug: Target(preview) build started.
-debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Wed Dec 31 1969 16:00:03 GMT-0800 (Pacific Standard Time), Current mtime: Wed Dec 31 1969 16:00:05 GMT-0800 (Pacific Standard Time)
+debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 05:30:03 GMT+0530 (India Standard Time), Current mtime: Thu Jan 01 1970 05:30:06 GMT+0530 (India Standard Time)
 debug: Inspect cce:/internal/x/prerequisite-imports
-debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts.
-debug: Target(preview) ends with cost 11.814000001177192ms.
+debug: Resolve file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts from cce:/internal/x/prerequisite-imports as file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts.
+debug: Target(preview) ends with cost 13.804749999195337ms.

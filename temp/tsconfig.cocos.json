@@ -15,7 +15,7 @@
         "/Applications/CocosCreator/Creator/3.7.0/CocosCreator.app/Contents/Resources/resources/3d/engine/editor/assets/*"
       ],
       "db://assets/*": [
-        "/Users/chicmic/Documents/InhouseCOCOS/Native/assets/*"
+        "/Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/*"
       ]
     },
     "experimentalDecorators": true,

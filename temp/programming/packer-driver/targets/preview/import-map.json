@@ -2,7 +2,7 @@
   "imports": {
     "cce:/internal/x/cc": "./chunks/86/86ea51a86e5d858891ef07385334b7b1017d7ca2.js",
     "cce:/internal/x/prerequisite-imports": "./chunks/6b/6b8f85b7feaee65395ce6b5e8080983e7f56d534.js",
-    "file:///Users/chicmic/Documents/InhouseCOCOS/Native/assets/Script/Zip.ts": "./chunks/38/389744f9e495adbe5d183026bac9151c166f947f.js"
+    "file:///Users/chicmic/Documents/InhouseCOCOS/uploadProfile/assets/Script/UploadImage.ts": "./chunks/03/037f0f248a77649298b680f9061a8dc1fb0c5306.js"
   },
   "scopes": {
     "./chunks/86/86ea51a86e5d858891ef07385334b7b1017d7ca2.js": {
@@ -36,9 +36,9 @@
       "__unresolved_9": "cce:/internal/x/cc-fu/intersection-2d"
     },
     "./chunks/6b/6b8f85b7feaee65395ce6b5e8080983e7f56d534.js": {
-      "__unresolved_0": "./chunks/38/389744f9e495adbe5d183026bac9151c166f947f.js"
+      "__unresolved_0": "./chunks/03/037f0f248a77649298b680f9061a8dc1fb0c5306.js"
     },
-    "./chunks/38/389744f9e495adbe5d183026bac9151c166f947f.js": {
+    "./chunks/03/037f0f248a77649298b680f9061a8dc1fb0c5306.js": {
       "cc": "./chunks/86/86ea51a86e5d858891ef07385334b7b1017d7ca2.js"
     }
   }

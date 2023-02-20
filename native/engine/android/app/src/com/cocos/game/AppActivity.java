@@ -24,167 +24,208 @@ THE SOFTWARE.
 ****************************************************************************/
 package com.cocos.game;
 
+import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-import android.app.DownloadManager;
-import android.content.Context;
-import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+
 import android.net.Uri;
 import android.os.Bundle;
+import android.content.Intent;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
+
+import android.content.pm.PackageManager;
+//import android.support.annotation.NonNull;
+//import android.support.v4.app.ActivityCompat;
+//import android.support.v4.content.ContextCompat;
+//import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.cocos.service.SDKWrapper;
 import com.cocos.lib.CocosActivity;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 public class AppActivity extends CocosActivity {
-    private static AppActivity app = null;
-    public static final int REQUEST_STORAGE_PERMISSION_CODE = 1;
-    public static String path;
-    public static String[] imagePaths;
+    private static final int CAMERA_REQUEST =1;
+    private static final int REQUEST_CAMERA = 1;
+    private static final int REQUEST_TAKE_PHOTO = 1;
+    static Uri capturedImageUri=null;
+    private static final int CONTENT_REQUEST=1337;
+    private static final int CAMERA_RESULT =1;
+    private final String TAG = "abc";
+
+    static final int REQUEST_IMAGE_CAPTURE =1 ;
+    ImageView iv;
+    Uri imageUri;
+    private static File output=null;
+    private static String imagePath = null;
+    private static final int CAMERA_PERMISSION_CODE = 100;
+    private static final int STORAGE_PERMISSION_CODE = 101;
+    public static  AppActivity app= null;
+    public static boolean flag  =false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // DO OTHER INITIALIZATION BELOW
-        SDKWrapper.shared().init(this);
         app = this;
+        SDKWrapper.shared().init(this);
+
     }
 
-    public static int ZipDownload(final int title) throws IOException, InterruptedException {
-        Log.d("CHECK 1", "ZipDownlaod Method");
-        int fileLength = app.downloadZipFile();
-        Log.d("PATHH", path);
-        return fileLength;
-    }
-    public int downloadZipFile() throws IOException, InterruptedException {
-        if (CheckPermissions()) {
-            DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-            Uri uri = Uri.parse("https://drive.google.com/uc?export=download&id=14MVx2mgsInNdfYx8jQ-6QwwgbPASpxQt");
-            DownloadManager.Request request = new DownloadManager.Request(uri);
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS.toString(), "dog.zip");
-            long reference = manager.enqueue(request);
-            Log.d("REQUEST VAR", Environment.DIRECTORY_DOWNLOADS.toString()+"/dog.zip");
-            Thread.sleep(4000);
-            unzip(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "dog.zip"), new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS))));
-            File dir = new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES)));
-            if (dir.exists()) {
-                File[] files = dir.listFiles();
-                if (files != null) {
-                    return files.length;
-                }}
-            //traverse(new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES))));
-            //return oneImagePath;
+    public static String jsLink(final String title) throws InterruptedException {
+        Log.d("HI", "jsLink: Executed ");
+        String path = null;
+        if (app.CheckPermissions()) {
+            path = app.imageChooser();
+            Log.d("CHECK 1", "Inside IF");
+          // Log.d("Returned Path", path);
 
         } else {
-            Log.d("PERMISSION", "Need Permission");
-            RequestPermissions();
-
+            app.RequestPermissions();
         }
-
-        return 0;
+        return  "hello";
     }
-//    public void traverse (File dir) {
-//        if (dir.exists()) {
-//            File[] files = dir.listFiles();
-//            if (files != null) {
-//
-//                for (int i = 0; i < files.length; ++i) {
-//                    File file = files[i];
-//                    if (file.isDirectory()) {
-//                        traverse(file);
-//                    } else {
-//                        Log.d("traverse", String.valueOf(file));
-//                       // getImages(String.valueOf(file));
-//                        //return String.valueOf(file);
-//                        // do something here with the file
-//                    }
-//                }
-//            }
+    ImageView imageView=null;
+    private String imageChooser() throws InterruptedException {
+            Intent i = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            final int ACTIVITY_SELECT_IMAGE = 1234;
+            Log.d("CCD", "imageChooser: selcct image");
+            app.startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
+            return imagePath;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+       super.onActivityResult(requestCode, resultCode, data);
+        Log.d("CHECK 2", "Inside onActivityResult");
+        if (requestCode == REQUEST_CAMERA && data != null && data.getData() != null) {
+                Log.d("BitMapPhoto", "creating image");
+                Bundle extras = data.getExtras();
+                 Log.d("CHECK 4", String.valueOf(extras));
+                 Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+              //  Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
+                Log.d("CHECK 3", String.valueOf(imageBitmap));
+                imageView.setImageBitmap(imageBitmap);
+        }
+    }
+        //###############################################################//
+//        if (resultCode == RESULT_OK) {
+//            Log.d("BitMapPhoto"," IF creating image");
+//            Uri selectedImageUri = data.getData();
+//            imagePath = getRealPathFromURI(selectedImageUri);
+//            //app.returnPath();
+//            Log.d("Picture Path", imagePath);
 //        }
+        //###############################################################//
+
+
+
+
+    public static String imagePath(final String title){
+        Log.d("FUNCTION","Inside imagePath");
+        //return imagePath;
+        return app.currentPhotoPath;
+    }
+
+//    public String getRealPathFromURI(Uri uri) {
+//        String[] projection = { MediaStore.Images.Media.DATA };
+//        @SuppressWarnings("deprecation")
+//        Cursor cursor = managedQuery(uri, projection, null, null, null);
+//        int column_index = cursor
+//                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//        cursor.moveToFirst();
+//        return cursor.getString(column_index);
 //    }
+String currentPhotoPath;
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        //new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC), "audioC.mp3");
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+//        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File image = File.createTempFile(
+//                imageFileName,  /* prefix */
+//                ".jpg",         /* suffix */
+//                storageDir      /* directory */
+//        );
 
-    public static String getImages(final int index){
-       // Log.d("GetImagesMethod", "getImages: ");
-        File dir = new File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES)));
-        if (dir.exists()) {
-            File[] files = dir.listFiles();
-            if (files != null) {
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
 
-              //  for (int i = index; i < files.length; ++i) {
-                    File file = files[index];
-                    if (file.isDirectory()) {
-                    } else {
-                       // Log.d("traverse", String.valueOf(file));
-//                        imagePaths[index] = String.valueOf(file);
-                        return String.valueOf(file);
+        return image;
+    }
 
-                        // do something here with the file
-                    }
-               // }
+    public static String cameraImage(final String title) {
+        if (app.CheckPermissions()) {
+            String cameraImagePath = app.saveFile();
+            return cameraImagePath;
+        }
+        
+        else{
+            app.RequestPermissions();
+    }
+        return title;
+    }
+    private void galleryAddPic() {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(currentPhotoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
+    }
+    private String saveFile() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+                Log.d("PATH",currentPhotoPath);
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
-        return null;
+        return currentPhotoPath;
     }
 
 
-    public static void unzip(File zipFile, File targetDirectory) throws IOException {
-        ZipInputStream zis = new ZipInputStream(
-                new BufferedInputStream(new FileInputStream(zipFile)));
-        try {
-            ZipEntry ze;
-            int count;
-            byte[] buffer = new byte[8192];
-            while ((ze = zis.getNextEntry()) != null) {
-                File file = new File(targetDirectory, ze.getName());
-                File dir = ze.isDirectory() ? file : file.getParentFile();
-                if (!dir.isDirectory() && !dir.mkdirs())
-                    throw new FileNotFoundException("Failed to ensure directory: " +
-                            dir.getAbsolutePath());
-                if (ze.isDirectory())
-                    continue;
-                FileOutputStream fout = new FileOutputStream(file);
-                path = String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
-                try {
-                    while ((count = zis.read(buffer)) != -1)
-                        fout.write(buffer, 0, count);
-                } finally {
-                    fout.close();
-                }
-            /* if time should be restored as well
-            long time = ze.getTime();
-            if (time > 0)
-                file.setLastModified(time);
-            */
-            }
-        } finally {
-            zis.close();
-        }
-    }
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         // this method is called when user will
         // grant the permission for audio recording.
         Log.d("CHECK 3", "onRequestPermission");
         switch (requestCode) {
-            case REQUEST_STORAGE_PERMISSION_CODE:
+            case CAMERA_PERMISSION_CODE:
+            case STORAGE_PERMISSION_CODE:
                 if (grantResults.length > 0) {
                     boolean permissionToStore = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     boolean permissionToRead = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-                    if (permissionToStore && permissionToRead) {
+                    boolean cameraPermission = grantResults[2] == PackageManager.PERMISSION_GRANTED;
+                    if (permissionToStore && permissionToRead && cameraPermission) {
                         Toast.makeText(getApplicationContext(), "Permission Granted", Toast.LENGTH_LONG).show();
                         Log.d("CHECK 4", "Permission Granted");
                     } else {
@@ -201,7 +242,8 @@ public class AppActivity extends CocosActivity {
         Log.d("CHECK 1", "Check Permission");
         int result = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
         int result1 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
-        return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED ;
+        int result2 = ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
+        return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED ;
 
     }
 
@@ -209,92 +251,9 @@ public class AppActivity extends CocosActivity {
         Log.d("CHECK 2", "Request Permission");
         // this method is used to request the
         // permission for audio recording and storage.
-        ActivityCompat.requestPermissions(AppActivity.this, new String[]{WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE}, REQUEST_STORAGE_PERMISSION_CODE);
+        ActivityCompat.requestPermissions(AppActivity.this, new String[]{WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,CAMERA}, STORAGE_PERMISSION_CODE);
     }
 }
-
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        SDKWrapper.shared().onResume();
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        SDKWrapper.shared().onPause();
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        // Workaround in https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
-//        if (!isTaskRoot()) {
-//            return;
-//        }
-//        SDKWrapper.shared().onDestroy();
-//    }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        SDKWrapper.shared().onActivityResult(requestCode, resultCode, data);
-//    }
-//
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//        SDKWrapper.shared().onNewIntent(intent);
-//    }
-//
-//    @Override
-//    protected void onRestart() {
-//        super.onRestart();
-//        SDKWrapper.shared().onRestart();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        SDKWrapper.shared().onStop();
-//    }
-//
-//    @Override
-//    public void onBackPressed() {
-//        SDKWrapper.shared().onBackPressed();
-//        super.onBackPressed();
-//    }
-//
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        SDKWrapper.shared().onConfigurationChanged(newConfig);
-//        super.onConfigurationChanged(newConfig);
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        SDKWrapper.shared().onRestoreInstanceState(savedInstanceState);
-//        super.onRestoreInstanceState(savedInstanceState);
-//    }
-//
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        SDKWrapper.shared().onSaveInstanceState(outState);
-//        super.onSaveInstanceState(outState);
-//    }
-//
-//    @Override
-//    protected void onStart() {
-//        SDKWrapper.shared().onStart();
-//        super.onStart();
-//    }
-//
-//    @Override
-//    public void onLowMemory() {
-//        SDKWrapper.shared().onLowMemory();
-//        super.onLowMemory();
-//    }
-
-
-
+// outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC), "audioC.mp3");
+////
+//            mRecorder.setOutputFile(outputFile.getAbsolutePath());

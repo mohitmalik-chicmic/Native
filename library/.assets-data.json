@@ -8,16 +8,26 @@
     "value": {}
   },
   "6f0ae2a2-5fd9-4d0a-8df3-d35cf5e46a56": {
-    "url": "db://assets/Script/Zip.ts",
+    "url": "db://assets/Script/UploadImage.ts",
     "value": {}
   },
   "4b0ad239-8124-48e1-82eb-6c8ff840f99c": {
-    "url": "db://assets/Scene/ZipExtractor.scene",
+    "url": "db://assets/Scene/ProfileUpload.scene",
     "value": {
       "depends": [
         "4b0ad239-8124-48e1-82eb-6c8ff840f99c",
         "57520716-48c8-4a19-8acf-41c9f8777fb0@f9941",
         "57520716-48c8-4a19-8acf-41c9f8777fb0@f9941",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0",
         "6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0"

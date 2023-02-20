@@ -8,19 +8,20 @@
     "outputName": "android",
     "mainBundleCompressionType": "merge_dep",
     "platform": "android",
-    "skipCompressTexture": true
+    "skipCompressTexture": true,
+    "name": "uploadImage"
   },
   "BuildTaskManager": {
     "taskMap": {
-      "1676055316136": {
+      "1676341805344": {
         "type": "build",
-        "id": "1676055316136",
+        "id": "1676341805344",
         "progress": 1,
         "state": "success",
         "stage": "build",
-        "message": "13-02-2023 14:24:31 Build success in 8017 ms!",
+        "message": "20-02-2023 16:42:11 Build success in 8043 ms!",
         "options": {
-          "name": "zipextractor",
+          "name": "uploadImage",
           "platform": "android",
           "buildPath": "project://build",
           "debug": false,
@@ -40,7 +41,7 @@
           "outputName": "android",
           "scenes": [
             {
-              "url": "db://assets/Scene/ZipExtractor.scene",
+              "url": "db://assets/Scene/ProfileUpload.scene",
               "uuid": "4b0ad239-8124-48e1-82eb-6c8ff840f99c",
               "inBundle": false
             }
@@ -49,7 +50,7 @@
           "packages": {},
           "__version__": "1.3.4"
         },
-        "time": "13-02-2023 14:24",
+        "time": "20-02-2023 16:42",
         "dirty": false
       }
     }
